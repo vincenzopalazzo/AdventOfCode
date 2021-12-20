@@ -1,6 +1,6 @@
-### Adventure of Code 2021
+### Advent of Code 2021
 
-This is the adventure of code made by the 2021 year renamed "If it is not experimental it is no fun", and
+This is the advent of code made by the 2021 year renamed "If it is not experimental it is no fun", and
 all the solution are made executable under only one main.
 
 The name "If it is not experimental it is no fun" it is referer to the programming language user,

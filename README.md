@@ -1,10 +1,10 @@
 <div align="center">
-  <h1>Adventure of Code</h1>
+  <h1>Adventof Code</h1>
 
   <img src="https://codeadventure.org/wp-content/uploads/2020/03/code-adventure-logo.jpg" />
 
   <p>
-    <strong><a href="https://github.com/vincenzopalazzo">@vincenzopalazzo</a> solutions for the Adventure Code divided by years.!</strong>
+    <strong><a href="https://github.com/vincenzopalazzo">@vincenzopalazzo</a> solutions for the Advent Code divided by years.!</strong>
   </p>
 </div>
 
