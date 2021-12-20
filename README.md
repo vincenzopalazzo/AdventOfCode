@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>Shift You</h1>
+  <h1>Adventure of Code</h1>
 
   <img src="https://codeadventure.org/wp-content/uploads/2020/03/code-adventure-logo.jpg" />
 
