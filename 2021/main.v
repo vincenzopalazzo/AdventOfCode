@@ -42,6 +42,9 @@ fn main() {
 		'1_1' {
 			println(dayone.sonar_sweep(conf.input))
 		}
+		'1_2' {
+			println(dayone.sonar_sweep_sliding_windows(conf.input))
+		}
 		else {
 			println('Error, the day ${conf.day} and problem ${conf.problem} are not supported')
 			exit(1)
