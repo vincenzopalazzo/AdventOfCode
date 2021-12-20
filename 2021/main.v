@@ -2,9 +2,9 @@ module main
 
 import os
 import flag
-
 import dayone
 import daytwo
+import daythree
 
 struct AdventureOfCode {
 mut:
@@ -19,8 +19,8 @@ fn configure_cmd_args() AdventureOfCode {
 	fp.version('v0.0.1')
 	fp.description('Adventure of Code 2021 solution')
 
-	day_str := fp.string('day', `d`, "1", "The day of the problem in the adventure code list")
-	problem_str := fp.string('problem', `b`, '1', "The problem of the day")
+	day_str := fp.string('day', `d`, '1', 'The day of the problem in the adventure code list')
+	problem_str := fp.string('problem', `b`, '1', 'The problem of the day')
 	input_str := fp.string('input', `i`, '', 'The input for the problem')
 
 	fp.finalize() or {
@@ -30,9 +30,9 @@ fn configure_cmd_args() AdventureOfCode {
 	}
 
 	return AdventureOfCode{
-		day: day_str,
-		problem: problem_str,
-		input: input_str,
+		day: day_str
+		problem: problem_str
+		input: input_str
 	}
 }
 
@@ -53,8 +53,14 @@ fn main() {
 		'2_2' {
 			println(daytwo.calculate_final_deep_evol(conf.input))
 		}
+		'3_1' {
+			println(daythree.find_diagnostic_report(conf.input))
+		}
+		'3_2' {
+			println(daythree.oxygen_generator_rating(conf.input))
+		}
 		else {
-			println('Error, the day ${conf.day} and problem ${conf.problem} are not supported')
+			println('Error, the day $conf.day and problem $conf.problem are not supported')
 			exit(1)
 		}
 	}

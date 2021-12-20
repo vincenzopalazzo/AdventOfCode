@@ -1,6 +1,6 @@
 module dayone
 
-import utils 
+import utils
 import strconv
 
 /// This is the solution of the part one for the day 1
@@ -8,7 +8,7 @@ pub fn sonar_sweep(input_url string) int {
 	inputs := prepare_input(input_url)
 	mut counter := 0
 	mut prev := inputs[0]
-	for index in 1..inputs.len {
+	for index in 1 .. inputs.len {
 		elem := inputs[index]
 		if elem > prev {
 			counter++
@@ -17,7 +17,6 @@ pub fn sonar_sweep(input_url string) int {
 	}
 	return counter
 }
-
 
 pub fn sonar_sweep_sliding_windows(input_url string) int {
 	input := prepare_input(input_url)
@@ -29,7 +28,7 @@ pub fn sonar_sweep_sliding_windows(input_url string) int {
 
 	for end_window <= input.len {
 		mut sum := 0
-		for index in start_window..end_window {
+		for index in start_window .. end_window {
 			elem := input[index]
 			sum += elem
 		}
@@ -53,7 +52,7 @@ fn prepare_input(url string) []int {
 	mut inputs := []int{}
 	for token in raw_token {
 		inputs << strconv.atoi(token) or {
-			println("$token is not a int value")
+			println('$token is not a int value')
 			exit(1)
 		}
 	}
