@@ -2,7 +2,9 @@ module main
 
 import os
 import flag
+
 import dayone
+import daytwo
 
 struct AdventureOfCode {
 mut:
@@ -44,6 +46,12 @@ fn main() {
 		}
 		'1_2' {
 			println(dayone.sonar_sweep_sliding_windows(conf.input))
+		}
+		'2_1' {
+			println(daytwo.calculate_final_deep(conf.input))
+		}
+		'2_2' {
+			println(daytwo.calculate_final_deep_evol(conf.input))
 		}
 		else {
 			println('Error, the day ${conf.day} and problem ${conf.problem} are not supported')
