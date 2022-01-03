@@ -1,7 +1,7 @@
 <div align="center">
   <h1>Adventof Code</h1>
 
-  <img src="https://codeadventure.org/wp-content/uploads/2020/03/code-adventure-logo.jpg" />
+  <img src="https://pulse.appsscript.info/files/2020/12/1_XtCMwEXZe2VcH-jfcHwCBQ-1-1.jpeg" />
 
   <p>
     <strong><a href="https://github.com/vincenzopalazzo">@vincenzopalazzo</a> solutions for the Advent Code divided by years.!</strong>
