@@ -45,8 +45,79 @@ pub fn find_diagnostic_report(input_url &string) int {
 	return to_decimal(diagnostic.gamma_rate) * to_decimal(diagnostic.epslon_rate)
 }
 
-pub fn oxygen_generator_rating(input_url &string) int {
-	return 0
+pub fn calculate_life_support(input_url &string) int {
+	status := prepare_input(input_url)
+	oxygen := oxygen_generator_rating(status, 0, 1)
+	co2 := co2_scrubber_rating(status, 0, 0)
+	println(oxygen)
+	println(co2)
+	return oxygen * co2
+}
+
+// Calculate the oxygen generator rating
+//
+// Procedure is:
+// - build the most common bits table by index
+// - use the most common map result as input of the next recursive call
+// - is we have aquality in the most common bit at position index return the choice value
+fn oxygen_generator_rating(bits_list []string, index int, choice int) int {
+	cmp := fn (a int, b int) bool {
+		return a > b
+	}
+	binary_number := life_support_helper(bits_list, index, choice, cmp)
+	return to_decimal(binary_number[0])
+}
+
+// Calculate the co2 scribber rating
+//
+// Procedure s the same of oxygen_generator_rating
+fn co2_scrubber_rating(bits_list []string, index int, choice int) int {
+	cmp := fn (a int, b int) bool {
+		return a < b
+	}
+	binary_number := life_support_helper(bits_list, index, choice, cmp)
+	return to_decimal(binary_number[0])
+}
+
+// Function that contains the recursion common logic to solve the life support
+// problem
+fn life_support_helper(bits_list []string, at int, def_choice int, cmp fn (int, int) bool) []string {
+	// TODO: build the most common bits map
+	// select the biggest bits, and return the winner list
+	// otherwise continue the recursion
+	// Commons list map
+	if bits_list.len == 1 {
+		println(bits_list)
+		return bits_list
+	}
+	mut commons_bits := map[string][]string{}
+	for bits_item in bits_list {
+		assert bits_item.len > at
+		bit := bits_item[int(at)].ascii_str()
+		if bit in commons_bits {
+			mut value := commons_bits[bit]
+			value << bits_item
+			commons_bits[bit] = value
+		} else {
+			mut value := []string{}
+			value << bits_item
+			commons_bits[bit] = value
+		}
+	}
+	ones := commons_bits['1']
+	zeros := commons_bits['0']
+
+	if cmp(ones.len, zeros.len) {
+		return life_support_helper(ones, at + 1, def_choice, cmp)
+	} else if cmp(ones.len, zeros.len) {
+		return life_support_helper(zeros, at + 1, def_choice, cmp)
+	} else {
+		if def_choice == 1 {
+			return life_support_helper(ones, at + 1, def_choice, cmp)
+		} else {
+			return life_support_helper(zeros, at + 1, def_choice, cmp)
+		}
+	}
 }
 
 fn to_decimal(binary_str string) int {
