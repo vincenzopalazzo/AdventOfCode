@@ -57,7 +57,7 @@ fn main() {
 			println(daythree.find_diagnostic_report(conf.input))
 		}
 		'3_2' {
-			println(daythree.oxygen_generator_rating(conf.input))
+			println(daythree.calculate_life_support(conf.input))
 		}
 		else {
 			println('Error, the day $conf.day and problem $conf.problem are not supported')
