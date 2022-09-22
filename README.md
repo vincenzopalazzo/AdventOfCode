@@ -9,6 +9,8 @@
 </div>
 
 
+## Migrated to https://codeberg.org/vincenzopalazzo/AdventOfCode
+
 
 I start this repository because I think it is a good excuse to test some new language with these 
 problem, and in addition to relax my self during the day :smile:
