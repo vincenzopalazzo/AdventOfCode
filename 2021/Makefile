@@ -3,8 +3,9 @@ default: fmt
 
 
 compiler:
-		@echo "Installing V compiler from the actual master version\n\n"
-		mkdir tmp && cd tmp && git clone https://github.com/vlang/v && cd v && make && sudo ./v symlink
+		@echo "Installing V compiler\n\n"
+		mkdir tmp && cd tmp && wget https://github.com/vlang/v/releases/download/0.3.2/v_linux.zip && unzip v_linux.zip;
+		cd tmp/v && sudo ./v symlink
 
 fmt:
 	v fmt -w day* main.v
