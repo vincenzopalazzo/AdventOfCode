@@ -12,7 +12,8 @@ import (
 )
 
 var Solutions = map[int]func(string) (*string, error){
-	1: core.SolveDay1,
+	// Day 1 - Problem 1 = 2
+	2: core.SolveDay1ProblemOne,
 }
 
 func main() {
@@ -21,13 +22,14 @@ func main() {
 	inputPath := cmd.CLI.Input
 	outputPath := cmd.CLI.Output
 	switch args.Command() {
-	case "run <day>":
+	case "run <day> <problem>":
 		day := cmd.CLI.Run.Day
-		log.Infof("Running day `%d`", day)
+		problem := cmd.CLI.Run.Problem
+		log.Infof("Running day `%d` problem `%d`", day, problem)
 
 		// FIXME: we should be able to load also the example input file, before running
 		// the solution. This is not implemented yet.
-		inFileName := fmt.Sprintf("aoc2024_day%d.in", day)
+		inFileName := fmt.Sprintf("aoc2024_day%d_es%d.in", day, problem)
 		contentString := ""
 		if content, err := utils.ReadFile(inputPath, inFileName); err != nil {
 			log.Errorf("Error reading file %s", err)
@@ -36,7 +38,7 @@ func main() {
 			contentString = *content
 		}
 
-		sol, ok := Solutions[day]
+		sol, ok := Solutions[day+problem]
 		if !ok {
 			log.Errorf("Day %d not implemented", day)
 			os.Exit(1)
@@ -47,7 +49,7 @@ func main() {
 			os.Exit(1)
 		}
 
-		outFileName := fmt.Sprintf("aoc2024_day%d.out", day)
+		outFileName := fmt.Sprintf("aoc2024_day%d_es%d.out", day, problem)
 		if err := utils.WriteFile(outputPath, outFileName, output); err != nil {
 			log.Errorf("Error writing file %s", err)
 			os.Exit(1)
