@@ -9,7 +9,8 @@ var CLI struct {
 	Input   string `help:"Input file." type:"path" default:"./input"`
 	Example bool   `help:"Load the example input file."`
 	Run     struct {
-		Day int `arg:"" help:"Day of the Advent of Code."`
+		Day     int `arg:"" help:"Day of the Advent of Code."`
+		Problem int `arg:"" help:"Problem of the day in Advent of Code."`
 	} `cmd:"" help:"Run a solution."`
 }
 
