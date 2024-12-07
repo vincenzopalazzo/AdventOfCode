@@ -24,7 +24,9 @@ func main() {
 	case "run <day>":
 		day := cmd.CLI.Run.Day
 		log.Infof("Running day `%d`", day)
-		// FIXME: load the file from input, and the file template is aoc2024_1.in
+
+		// FIXME: we should be able to load also the example input file, before running
+		// the solution. This is not implemented yet.
 		inFileName := fmt.Sprintf("aoc2024_day%d.in", day)
 		contentString := ""
 		if content, err := utils.ReadFile(inputPath, inFileName); err != nil {

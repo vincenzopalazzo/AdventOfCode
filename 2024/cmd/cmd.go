@@ -7,6 +7,7 @@ var CLI struct {
 	Verbose bool   `help:"Enable verbose mode."`
 	Output  string `help:"Output file." type:"path" default:"./output"`
 	Input   string `help:"Input file." type:"path" default:"./input"`
+	Example bool   `help:"Load the example input file."`
 	Run     struct {
 		Day int `arg:"" help:"Day of the Advent of Code."`
 	} `cmd:"" help:"Run a solution."`
