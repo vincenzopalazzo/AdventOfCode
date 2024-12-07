@@ -22,13 +22,13 @@ func ReadFile(path string, fileName string) (*string, error) {
 }
 
 // WriteFile - Write a file in a path with a specific content
-func WriteFile(path string, fileName string, content string) error {
+func WriteFile(path string, fileName string, content *string) error {
 	filePath := fmt.Sprintf("%s/%s", path, fileName)
 	if file, err := os.Create(filePath); err != nil {
 		return err
 	} else {
 		defer file.Close()
-		if _, err := file.WriteString(content); err != nil {
+		if _, err := file.WriteString(*content); err != nil {
 			return err
 		}
 	}
