@@ -11,11 +11,11 @@ import (
 	"github.com/vincenzopalazzo/AdventOfCode/2024/utils"
 )
 
-var Solutions = map[int]func(string) (*string, error){
-	// Day 1 - Problem 1 = 2
-	2: core.SolveDay1ProblemOne,
-	// Day 1 - Problem 2 = 3
-	3: core.SolveDay1ProblemTwo,
+var Solutions = map[string]func(string) (*string, error){
+	"1_1": core.SolveDay1ProblemOne,
+	"1_2": core.SolveDay1ProblemTwo,
+	"2_1": core.SolveDay2ProblemOne,
+	"2_2": core.SolveDay2ProblemTwo,
 }
 
 func main() {
@@ -44,7 +44,7 @@ func main() {
 			contentString = *content
 		}
 
-		sol, ok := Solutions[day+problem]
+		sol, ok := Solutions[fmt.Sprintf("%d_%d", day, problem)]
 		if !ok {
 			log.Errorf("Day %d not implemented", day)
 			os.Exit(1)
