@@ -14,6 +14,8 @@ import (
 var Solutions = map[int]func(string) (*string, error){
 	// Day 1 - Problem 1 = 2
 	2: core.SolveDay1ProblemOne,
+	// Day 1 - Problem 2 = 3
+	3: core.SolveDay1ProblemTwo,
 }
 
 func main() {
@@ -29,7 +31,11 @@ func main() {
 
 		// FIXME: we should be able to load also the example input file, before running
 		// the solution. This is not implemented yet.
-		inFileName := fmt.Sprintf("aoc2024_day%d_es%d.in", day, problem)
+		inFileName := fmt.Sprintf("aoc2024_day%d", day)
+		if cmd.CLI.Example {
+			inFileName += "eg"
+		}
+		inFileName += fmt.Sprintf("_es%d.in", problem)
 		contentString := ""
 		if content, err := utils.ReadFile(inputPath, inFileName); err != nil {
 			log.Errorf("Error reading file %s", err)
@@ -48,8 +54,13 @@ func main() {
 			log.Errorf("Error solving day %d: %s", day, err)
 			os.Exit(1)
 		}
+		log.Infof("Solution: %s", *output)
 
-		outFileName := fmt.Sprintf("aoc2024_day%d_es%d.out", day, problem)
+		outFileName := fmt.Sprintf("aoc2024_day%d", day)
+		if cmd.CLI.Example {
+			outFileName += "eg"
+		}
+		outFileName += fmt.Sprintf("_es%d.in", problem)
 		if err := utils.WriteFile(outputPath, outFileName, output); err != nil {
 			log.Errorf("Error writing file %s", err)
 			os.Exit(1)
